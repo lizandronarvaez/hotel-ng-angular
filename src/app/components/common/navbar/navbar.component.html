@@ -3,62 +3,45 @@
     <!-- nav elementos -->
     <nav class="flex justify-between items-center w-full p-0">
       <!-- logo -->
-      <a href="" class="flex-0 p-0">
+      <a routerLink="/" class="flex-0 p-0">
         <img src="assets/images/logo.png" alt="logo" class="w-20" />
       </a>
       <!-- menu -->
       <div class="flex-1">
         <ul class="flex justify-center space-x-10 pr-0 mb-0">
           <li>
-            <a
-              href=""
-              class="text-blackColor px-0 py-7 transition ease-in-out duration-500 font-bold text-primary hover:text-primaryHover"
-            >
+            <a routerLink="/"
+              class="ext-primaryF px-0 py-7 transition ease-in-out duration-500 font-bold text-blackColorC hover:text-primaryHoverC">
               Inicio
             </a>
           </li>
           <li>
-            <a
-              href=""
-              class="text-blackColor px-0 py-7 ftransition ease-in-out duration-500 font-bold text-primary hover:text-primaryHover"
-            >
-              Reserva
+            <a routerLink="/check-reservation"
+              class="text-primaryF px-0 py-7 ftransition ease-in-out duration-500 font-bold text-blackColorC hover:text-primaryHoverC">
+              Mi Reserva
             </a>
           </li>
           <li>
-            <a
-              href=""
-              class="text-blackColor px-0 py-7 transition ease-in-out duration-500 font-bold text-primary hover:text-primaryHover"
-            >
+            <a routerLink="/contact"
+              class="text-primaryF px-0 py-7 transition ease-in-out duration-500 font-bold text-blackColorC hover:text-primaryHoverC">
               Contacto
             </a>
           </li>
         </ul>
-        <!-- formulario contacto -->
       </div>
+      <!-- formulario contacto -->
       <div>
         <form
-          class="flex items-center p-5 relative bg-primary w-80 h-14 color-primary rounded-tr-full rounded-br-full"
-        >
+          class="flex items-center p-5 relative bg-primaryBg w-80 h-14 text-primaryC rounded-tr-full rounded-br-full">
           <div>
-            <label for="buscar"></label>
-            <input
-              type="text"
-              id="buscar"
-              name="Buscar"
-              placeholder="Buscar..."
-              class="outline-none bg-primary text-primary"
-            />
+            <!-- <label for="buscar"></label> -->
+            <input type="text" id="buscar" name="Buscar" placeholder="Buscar..."
+              class="outline-none bg-primaryBg text-primaryC" />
           </div>
-          <button
-            type="submit"
-            class="top-0 right-0 w-14 h-14 border-none text-secondary rounded-full absolute text-center bg-secondary hover:bg-secondaryHover"
-          >
-            <img
-              class="right-0 left-0 top-2/4 absolute -translate-y-3 translate-x-4"
-              src="assets/images/icon/search.svg"
-              alt=""
-            />
+          <button type="submit"
+            class="top-0 right-0 w-14 h-14 border-none text-secondaryF rounded-full absolute text-center bg-secondaryBg hover:bg-secondaryHoverBg">
+            <img class="right-0 left-0 top-2/4 absolute -translate-y-3 translate-x-4"
+              src="assets/images/icon/search.svg" alt="" />
           </button>
         </form>
       </div>
