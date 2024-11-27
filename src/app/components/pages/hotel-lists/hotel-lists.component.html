@@ -1,0 +1,233 @@
+<!-- lista de estilos -->
+<div class="py-28">
+  <div class="container mx-auto">
+    <div class="flex space-x-20">
+      <!-- sidebar -->
+      <div class="flex">
+        <div class="bg-white2 rounded-md px-6 py-16">
+          <div class="border-b border-b-gray-200 p-6 -m-6">
+            <h3 class="text-xl mb-5 text-blackColorC">Buscar aquí</h3>
+            <form class="relative">
+              <div>
+                <label for="search"></label>
+                <input type="text" name="search" id="search" placeholder="Buscar"
+                  class="bg-white h-14 px-2 pl-12 outline-none" />
+                <button type="submit" class="top-4 p-0 left-4 border-none absolute">
+                  <img src="assets/images/icon/search_form.svg" alt="search" />
+                </button>
+              </div>
+            </form>
+            <!--  -->
+            <div class="pt-5">
+              <h3 class="text-xl text-blackColorC py-5">Precio</h3>
+              <select
+                class="w-full h-14 cursor-pointer rounded-lg text-blackColorC outline-none text-base border-gray-300 bg-white px-5">
+                <option class="bg-gray-500 text-white" selected>50€</option>
+                <option class="bg-gray-500 text-white" value="1">100€</option>
+                <option class="bg-gray-500 text-white" value="2">200€</option>
+                <option class="bg-gray-500 text-white" value="3">300€</option>
+                <option class="bg-gray-500 text-white" value="4">400€</option>
+                <option class="bg-gray-500 text-white" value="5">500€</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- listado de hoteles -->
+      <div class="flex-1">
+        <div class="pr-3">
+          <ul class="flex justify-between pr-0 mb-8">
+            <li>
+              <span>30 Hoteles</span>
+            </li>
+            <li>
+              <select
+                class="bg-gray-100 text-blackColorC text-sm rounded-md cursor-pointer border-none p-3 -mb-1 outline-none">
+                <option selected>Ordenado por defecto</option>
+                <option value="1">Mayor a menor precio</option>
+                <option value="2">Menor a mayor precio</option>
+              </select>
+            </li>
+          </ul>
+
+          <!-- listado de hoteles -->
+          <ul>
+            <li class="bg-white2 mb-6 rounded-md p-8">
+              <div class="flex items-center justify-between">
+                <div>
+                  <a>
+                    <img class="max-h-[300px] h-auto rounded-sm" src="assets/images/hotels/hotel4.jpg" alt="hotel" />
+                  </a>
+                </div>
+                <div>
+                  <div class="p-5 border-l border-solid border-l-[#eeeeee]">
+                    <h3 class="text-2xl mb-2">
+                      <a> Hotel ElChis L.D. </a>
+                    </h3>
+                    <p class="mb-2">New York, NY</p>
+                    <!-- Rating -->
+                    <div class="mb-2">
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-half-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                    </div>
+                    <p>4.8/5 Excelente (100 reviews)</p>
+                    <div class="mb-5 text-lg font-bold">
+                      250€ <span class="font-normal text-base">Por noche</span>
+                    </div>
+                    <a class="py-3 cursor-pointer">
+                      Reservar
+                    </a>
+                  </div>
+                </div>
+                <div class="p-2">
+                  <ul class="space-y-5">
+                    <li class="flex justify-between">
+                      Wifi gratis
+                      <i class="ri-wifi-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Parking gratis
+                      <i class="ri-roadster-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Aire Acondicionado
+                      <i class="ri-wheelchair-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Restaurante
+                      <i class="ri-restaurant-2-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Gym
+                      <i class="ri-riding-line text-primaryHoverC"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- segundo hotel -->
+
+            <li class="bg-white2 mb-6 rounded-md p-8">
+              <div class="flex items-center justify-between">
+                <div>
+                  <a>
+                    <img class="max-h-[300px] h-auto rounded-sm" src="assets/images/hotels/hotel1.jpg" alt="hotel" />
+                  </a>
+                </div>
+                <div>
+                  <div class="p-5 border-l border-solid border-l-[#eeeeee]">
+                    <h3 class="text-2xl mb-2">
+                      <a> Hotel Manhattan D.R. </a>
+                    </h3>
+                    <p class="mb-2">New York, NY</p>
+                    <!-- Rating -->
+                    <div class="mb-2">
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-half-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                    </div>
+                    <p>4.8/5 Excelente (100 reviews)</p>
+                    <div class="mb-5 text-lg font-bold">
+                      300€ <span class="font-normal text-base">Por noche</span>
+                    </div>
+                    <a class="py-3 cursor-pointer">
+                      Reservar
+                    </a>
+                  </div>
+                </div>
+                <div class="p-2">
+                  <ul class="space-y-5">
+                    <li class="flex justify-between">
+                      Wifi gratis
+                      <i class="ri-wifi-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Parking gratis
+                      <i class="ri-roadster-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Aire Acondicionado
+                      <i class="ri-wheelchair-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Restaurante
+                      <i class="ri-restaurant-2-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Gym
+                      <i class="ri-riding-line text-primaryHoverC"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- tercero -->
+            <li class="bg-white2 mb-6 rounded-md p-8">
+              <div class="flex items-center justify-between">
+                <div>
+                  <a>
+                    <img class="max-h-[300px] h-auto rounded-sm" src="assets/images/hotels/hotel2.jpg" alt="hotel" />
+                  </a>
+                </div>
+                <div>
+                  <div class="p-5 border-l border-solid border-l-[#eeeeee]">
+                    <h3 class="text-2xl mb-2">
+                      <a> Hotel Manhattan D.R. </a>
+                    </h3>
+                    <p class="mb-2">New York, NY</p>
+                    <!-- Rating -->
+                    <div class="mb-2">
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                      <i class="ri-star-half-fill text-lg text-[#f99e29] ml-[2px]"></i>
+                    </div>
+                    <p>4.8/5 Excelente (100 reviews)</p>
+                    <div class="mb-5 text-lg font-bold">
+                      400€ <span class="font-normal text-base">Por noche</span>
+                    </div>
+                    <a class="py-3 cursor-pointer">
+                      Reservar
+                    </a>
+                  </div>
+                </div>
+                <div class="p-2">
+                  <ul class="space-y-5">
+                    <li class="flex justify-between">
+                      Wifi gratis
+                      <i class="ri-wifi-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Parking gratis
+                      <i class="ri-roadster-line text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Aire Acondicionado
+                      <i class="ri-wheelchair-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Restaurante
+                      <i class="ri-restaurant-2-line  text-primaryHoverC"></i>
+                    </li>
+                    <li class="flex justify-between">
+                      Gym
+                      <i class="ri-riding-line text-primaryHoverC"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
