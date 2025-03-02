@@ -1,0 +1,32 @@
+
+<div class="bg-home-bg bg-cover bg-center bg-no-repeat py-12 md:py-32 max-h-screen">
+    <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div class="bg-white rounded-2xl shadow-md  mt-10 p-8 md:p-12 lg:p-16">
+            <!-- Título y descripción -->
+            <div class="text-center mb-10">
+                <h2 class="text-lg md:text-5xl font-bold text-gray-900 mb-4">
+                    Bienvenido al
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF7F50] to-[#FF4500]">
+                        Hotel AngularNG
+                    </span>
+                </h2>
+                <p class="text-sm md:text-xl text-gray-900 font-light">
+                    Estás a un paso de sumergirte en una experiencia de confort, bienestar y elegancia.
+                </p>
+            </div>
+            <app-form-search-room />
+            <!-- Texto informativo -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-900">
+                    <span class="text-red-500">*</span> Descubre nuestras exclusivas habitaciones de 3, 4 y 5 estrellas,
+                    diseñadas para ofrecerte la mejor experiencia con una relación calidad-precio incomparable.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Componentes adicionales -->
+<app-list-rooms />
+<app-list-services />
+<app-form-contact-maps />
