@@ -1,44 +1,28 @@
-<div class="p-10 mt-10 md:pt-0 bg-white rounded-lg shadow-lg">
-    <h3 class="text-center text-2xl font-bold text-[#007F86] mb-4">Formulario de contacto</h3>
+<div class="p-5 lg:p-16 mt-10 md:pt-0 bg-white rounded-lg shadow-2xl">
+    <h3 class="text-center text-2xl font-bold text-[#2c3e50] mb-4">Formulario de contacto</h3>
     <hr class="border-[#007F86] mb-6">
-    <div class="p-6">
-        <form class="space-y-6">
+    <div>
+        <form class="space-y-6" [formGroup]="form" (submit)="handleSubmitForm()">
             <div class="flex flex-col space-y-2">
-                <label for="nombre" class="text-sm font-medium text-gray-700">Nombre completo</label>
-                <input
-                    type="text"
-                    id="nombre"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007F86] focus:border-transparent transition-all"
-                    placeholder="Ingresa tu nombre"
-                >
+                <label for="fullName" class="text-sm font-medium text-gray-700">Nombre completo</label>
+                <input type="text" id="fullName" class="w-full px-4 py-2 border border-gray-300 rounded"
+                    placeholder="Ingresa tu nombre">
             </div>
 
             <div class="flex flex-col space-y-2">
-                <label for="telefono" class="text-sm font-medium text-gray-700">Teléfono de contacto</label>
-                <input
-                    type="text"
-                    id="telefono"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007F86] focus:border-transparent transition-all"
-                    placeholder="Ingresa tu teléfono"
-                >
+                <label for="phoneNumber" class="text-sm font-medium text-gray-700">Teléfono de contacto</label>
+                <input type="text" id="phoneNumber" class="w-full px-4 py-2 border border-gray-300 rounded"
+                    placeholder="Ingresa tu teléfono">
             </div>
 
-            <!-- Campo: Mensaje -->
             <div class="flex flex-col space-y-2">
-                <label for="mensaje" class="text-sm font-medium text-gray-700">Mensaje</label>
-                <textarea
-                    id="mensaje"
-                    rows="5"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007F86] focus:border-transparent transition-all"
-                    placeholder="Escribe tu mensaje"
-                ></textarea>
+                <label for="messageBody" class="text-sm font-medium text-gray-700">Mensaje</label>
+                <textarea id="messageBody" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded"
+                    placeholder="Escribe tu mensaje"></textarea>
             </div>
 
-            <!-- Botón: Enviar -->
-            <button
-                type="submit"
-                class="outline-none w-full px-4 py-3 bg-[#007F86] text-white font-semibold rounded-lg hover:bg-[#005F66] transition-all focus:outline-none focus:ring-2 focus:ring-[#007F86] focus:ring-offset-2"
-            >
+            <button type="submit"
+                class="outline-none w-full px-4 py-3 bg-[#2c3e50] text-white font-semibold rounded-lg hover:bg-[#005F66]">
                 Enviar
             </button>
         </form>
