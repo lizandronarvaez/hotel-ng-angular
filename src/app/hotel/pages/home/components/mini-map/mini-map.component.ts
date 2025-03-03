@@ -23,15 +23,22 @@ export class MiniMapComponent implements AfterViewInit {
             style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=uamSLE4oRDuDDHTMig9a',
             center: this.currentLatLong,
             zoom: this.zoom,
-            dragPan: false,
-            interactive: false,
+            // dragPan: false,
+            // interactive: false,
             attributionControl: false
         })
-        // new Marker({
-        //     color:'red',
-        //     draggable: true
-        // })
-        //     .setLngLat(this.currentLatLong)
-        //     .addTo(map);
+        const marker = new Marker({
+            color: 'red',
+        })
+            .setLngLat(this.currentLatLong)
+            .addTo(map);
+
+        marker.getElement().addEventListener('click', () => {
+            map.flyTo({
+                center: this.currentLatLong,
+                zoom: this.zoom,
+                essential: true
+            });
+        });
     }
 }
