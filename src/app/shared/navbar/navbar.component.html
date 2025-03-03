@@ -8,16 +8,15 @@
             <!-- Logo y menú móvil -->
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <i class="ri-hotel-line text-3xl text-white"></i>
-                    <a routerLink="/" class="text-2xl font-bold">
-                        Hotel<span class="text-red-500 font-semibold">AngularNG</span>
+                    <i class="ri-hotel-line text-3xl text-gray-700"></i>
+                    <a routerLink="/" class="text-2xl">
+                        Hotel<span class="text-red-500 font-mono"> AngularNG</span>
                     </a>
                 </div>
                 <!-- Botón de menú móvil -->
                 <a class="md:hidden">
                     <i [ngClass]="{'ri-menu-line': !isActive(), 'ri-close-line text-red-500': isActive}"
-                        class="text-2xl cursor-pointer"
-                        (click)="toggleNav()">
+                        class="text-2xl cursor-pointer" (click)="toggleNav()">
                     </i>
                 </a>
             </div>
@@ -27,7 +26,7 @@
                 <ul class="md:flex space-y-5 md:space-y-0 md:space-x-8 px-2">
                     @for (item of navItem(); track $index) {
                     <li>
-                        <a [routerLink]="item.path" (click)="hiddenNav()" class="font-semibold">
+                        <a [routerLink]="item.path" (click)="hiddenNav()">
                             {{item.title}}
                         </a>
                     </li>
