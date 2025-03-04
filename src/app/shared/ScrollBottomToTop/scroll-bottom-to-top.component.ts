@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, HostListener, signal } from '@angular/core';
 
 @Component({
     selector: 'app-scroll-bottom-to-top',
@@ -9,11 +9,13 @@ import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core'
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollBottomToTopComponent {
-    showButton = false;
+
+    public scrollPosition = signal<number>(0);
+    public showButton = computed(() => this.scrollPosition() > 400);
 
     @HostListener('window:scroll', [])
     onWindowScroll() {
-        this.showButton = window.scrollY > 200;
+        this.scrollPosition.set(window.scrollY);
     }
 
     scrollToTop() {
