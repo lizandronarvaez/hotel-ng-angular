@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from "./shared/footer/footer.component";
+import { ScrollBottomToTopComponent } from "./shared/ScrollBottomToTop/scroll-bottom-to-top.component";
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, NavbarComponent, FooterComponent],
+    imports: [RouterOutlet, NavbarComponent, FooterComponent, ScrollBottomToTopComponent],
     templateUrl: './app.component.html',
 })
 export class AppComponent {
