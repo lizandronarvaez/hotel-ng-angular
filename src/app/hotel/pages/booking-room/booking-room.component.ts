@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppService } from '../../../service/app.service';
+import { ValidatorsService } from '../../../shared/service/validators.service';
+import { FormRoomsService } from '../../../shared/service/formRooms.service';
 
 @Component({
     selector: 'app-reservation',
@@ -10,16 +12,20 @@ import { AppService } from '../../../service/app.service';
 })
 export default class ReservationComponent {
     public appService = inject(AppService);
+    public validatorService = inject(ValidatorsService);
+    public formBuilder = inject(FormBuilder);
+    public formRoomService = inject(FormRoomsService)
 
 
     public form: FormGroup = inject(FormBuilder).group({
-        email: ['', [Validators.email, Validators.required]],
-        password: ['', [Validators.required, Validators.minLength(3)]]
+        confirmationCode: ['', [Validators.required]],
     })
 
     handleSubmitBooking(): void {
-        this.appService.showMessagePage();
-        if (this.form.invalid) return;
+        // this.appService.showMessagePage();
+        if (this.form.invalid) {
+            this.form.markAllAsTouched();
+        };
 
     }
 }
