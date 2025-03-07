@@ -1,0 +1,80 @@
+<!-- Formulario -->
+<form [formGroup]="formRoomService.getForm()" (submit)="onSubmitSearchRooms()" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Fecha de Entrada -->
+        <div>
+            <div class="relative">
+                <p class="text-left block text-sm font-semibold text-gray-700 mb-2">
+                    Fecha de Entrada <span class="text-red-700">*</span>
+                </p>
+                <i
+                    class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+                <dp-date-picker theme="dp-material" [config]="datePickerConfig" placeholder="Selecciona la fecha"
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" formControlName="startDate"
+                    (blur)="formRoomService.getForm().get('startDate')?.markAsTouched()">
+                </dp-date-picker>
+            </div>
+            @if (isValidField('startDate')) {
+                <span class="text-sm text-red-500">
+                    {{errorFieldMessage('startDate')}}
+                </span>
+            }
+        </div>
+
+
+        <!-- Fecha de Salida -->
+        <div>
+            <div class="relative">
+                <p class="block text-sm text-left font-semibold text-gray-700 mb-2">
+                    Fecha de Salida <span class="text-red-700">*</span>
+                </p>
+                <i
+                    class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+                <dp-date-picker theme="dp-material" [config]="datePickerConfig" placeholder="Selecciona la fecha"
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" formControlName="endDate">
+                </dp-date-picker>
+            </div>
+            @if (isValidField('endDate')) {
+                <span class="text-sm text-red-500">
+                    {{errorFieldMessage('endDate')}}
+                </span>
+            }
+        </div>
+
+        <!-- Tipo de Habitación -->
+        <div>
+            <div class="relative">
+                <p class="block text-sm text-left font-semibold text-gray-700 mb-2">
+                    Tipo de Habitación <span class="text-red-700">*</span>
+                </p>
+                <i
+                    class="ri-hotel-bed-line absolute left-3 bottom-3 text-gray-400 text-xl"></i>
+                <select class="w-full pl-10 pr-4 py-4 border border-gray-300 rounded-lg bg-white text-gray-700"
+                    formControlName="typeRoom">
+                    <option value="">Selecciona una opción</option>
+                    <option value="standar">Standar</option>
+                    <option value="premium">Premium</option>
+                    <option value="ejecutiva">Ejecutiva</option>
+                    <option value="familiar">Familiar</option>
+                </select>
+            </div>
+            @if (isValidField('typeRoom')) {
+                <span class="text-sm text-red-500">
+                    {{errorFieldMessage('typeRoom')}}
+                </span>
+            }
+        </div>
+    </div>
+
+
+    <!-- Botón de Buscar -->
+    <div class="text-center">
+        <button
+            class="w-full md:w-auto bg-[#FF4500] md:bg-[#FF7F50] md:hover:bg-[#FF4500] text-white font-semibold py-3 px-8 rounded-lg "
+            type="submit">
+            Buscar Habitación
+            <i class="ri-search-line ml-2"></i>
+        </button>
+    </div>
+</form>
+
