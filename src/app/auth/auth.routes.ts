@@ -16,6 +16,11 @@ export const AUTH_ROUTES: Routes = [
                 loadComponent: () => import('./pages/register-page/register-page.component')
             },
             {
+                path: "admin",
+                title: 'Hotel AngularNG - Acceso Admin',
+                loadComponent: () => import('./pages/admin/admin.component')
+            },
+            {
                 path: "**",
                 redirectTo: "",
                 pathMatch: "full"
