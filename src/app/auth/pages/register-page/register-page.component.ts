@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AppService } from '../../../service/app.service';
+import { ValidatorsService } from '../../../shared/service/validators.service';
 
 @Component({
     selector: 'app-register-page',
@@ -11,10 +12,11 @@ import { AppService } from '../../../service/app.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterPageComponent {
-        public appService = inject(AppService);
+    public appService = inject(AppService);
+    public validatorForms=inject(ValidatorsService);
 
     public form: FormGroup = inject(FormBuilder).group({
-        fullname: ['', [Validators.required]],
+        fullName: ['', [Validators.required]],
         email: ['', [Validators.email, Validators.required]],
         password: ['', [Validators.required, Validators.minLength(3)]]
     })
@@ -24,7 +26,9 @@ export default class RegisterPageComponent {
     handleSumbitRegister(): void {
         this.appService.showMessagePage();
 
-        if (this.form.invalid) return;
+        if (this.form.invalid) {
+            this.form.markAllAsTouched();
+        };
 
     }
 }
