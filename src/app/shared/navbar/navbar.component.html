@@ -1,24 +1,25 @@
-<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- Navbar -->
-<div class="fixed z-10 w-full bg-white text-black shadow-lg">
+<div class="fixed z-10 w-full bg-white text-black shadow-lg font-sans">
     <div class="w-[90%] mx-auto py-4 md:py-3">
         <!-- Nav elementos -->
         <nav class="md:flex justify-between items-center">
             <!-- Logo y menú móvil -->
             <div class="flex justify-between items-center">
+                
+                <!-- Logo con icono -->
                 <div class="flex items-center space-x-2">
-                    <i class="ri-hotel-line text-3xl text-gray-700"></i>
-                    <a routerLink="/" class="text-2xl">
-                        Hotel<span class="text-red-500 font-mono"> AngularNG</span>
+                    <i class="ri-hotel-line text-3xl"></i>
+                    <a routerLink="/" class="text-2xl font-semibold text-gray-800">
+                        Hotel<span class="text-[#FF6B6B] font-mono"> AngularNG</span>
                     </a>
                 </div>
+
                 <!-- Botón de menú móvil -->
-                <a class="md:hidden">
-                    <i [ngClass]="{'ri-menu-line': !isActive(), 'ri-close-line text-red-500': isActive}"
-                        class="text-2xl cursor-pointer" (click)="toggleNav()">
-                    </i>
-                </a>
+                <div class="md:hidden">
+                    <button [ngClass]="{'ri-menu-line': !isActive(), 'ri-close-line ': isActive}"
+                        class="text-2xl cursor-pointer " (click)="toggleNav()">
+                    </button>
+                </div>
             </div>
 
             <!-- Enlaces de navegación -->
@@ -26,8 +27,23 @@
                 <ul class="md:flex space-y-5 md:space-y-0 md:space-x-8 px-2">
                     @for (item of navItem(); track $index) {
                     <li>
-                        <a [routerLink]="item.path" (click)="hiddenNav()">
-                            {{item.title}}
+                        <a [routerLink]="item.path" (click)="hiddenNav()"
+                            routerLinkActive="border-b-2 border-orange-500"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            class="flex items-center space-x-2 text-gray-700 hover:text-gray-900 border-b-2  hover:border-orange-500 transition-colors pb-2 box-border">
+                            <!-- Iconos para cada enlace -->
+                            @if (item.title === 'Inicio') {
+                            <i class="ri-home-2-line"></i>
+                            } @else if (item.title === 'Habitaciones') {
+                            <i class="ri-hotel-bed-line"></i>
+                            } @else if (item.title === 'Mi reserva') {
+                            <i class="ri-calendar-check-line"></i>
+                            } @else if (item.title === 'Acceso Cliente') {
+                            <i class="ri-login-box-line"></i>
+                            } @else if (item.title === 'Acceso Admin') {
+                            <i class="ri-admin-line"></i>
+                            }
+                            <span class="font-medium">{{ item.title }}</span>
                         </a>
                     </li>
                     }

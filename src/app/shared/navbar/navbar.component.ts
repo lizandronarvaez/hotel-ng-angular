@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { routes } from '../../app.routes';
 
 interface NavItem {
     title: string,
@@ -14,19 +15,20 @@ interface NavItem {
     templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
-
+    public nav=routes.map(route=>{
+        console.log(route)
+    })
     public navItem = signal<NavItem[]>([
         { path: '/hotel-angular', title: 'Inicio' },
         { path: '/hotel-angular/lists-rooms', title: 'Habitaciones' },
         { path: '/hotel-angular/find-booking', title: 'Mi reserva' },
-        { path: '/auth/login', title: 'Login' },
-        { path: '/auth/register', title: 'Registro' },
-
+        { path: '/auth/login', title: 'Acceso Cliente' },
+        { path: '/auth/admin', title: 'Acceso Admin' },
     ]);
 
     public isActive = signal(false);
 
-    toggleNav(): void {this.isActive.update(value => !value);}
+    toggleNav(): void { this.isActive.update(value => !value); }
 
-    hiddenNav(): void {this.isActive.set(false);}
+    hiddenNav(): void { this.isActive.set(false); }
 }
