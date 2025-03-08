@@ -7,7 +7,7 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                "home-bg": "url('https://www.viaempresa.cat/uploads/s1/25/95/13/64/els-fons-inversors-busquen-oportunitats-davant-la-crisi-del-sector-hoteler-istock.jpeg')",
+                "home-bg": "url('https://www.hotelgumontgdl.com/img/slider_horizontal/1.jpg')",
                 "bookingImage": "url('https://pro-static.h10hotels.com/gallery/CabeceraH10NOV2.jpg')",
                 "imageRooms": "url('https://media.licdn.com/dms/image/v2/C4E12AQGjw2-7pO1KWw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1589378789505?e=2147483647&v=beta&t=qgbTQUvqhBXgvUdofx6zd__ldkeS4ESdtvtHdvmRhmQ')",
                 "reservation": "url('https://www.serinf.it/wp-content/uploads/2022/07/Cover-blog-check-in-check-out.jpg')"
