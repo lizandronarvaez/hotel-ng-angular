@@ -8,6 +8,7 @@ import 'dayjs/locale/es';
 import { ListServicesComponent } from "./sections/list-services/list-services.component";
 import { SectionOneComponent } from "./sections/list-rooms/list-rooms.component";
 import { FormSearchRoomComponent } from "../../../shared/formSearchRoom/formSearchRoom.component";
+import { ScrollBottomToTopComponent } from "../../../shared/scrollBottomToTop/scroll-bottom-to-top.component";
 
 @Component({
     selector: 'app-home',
@@ -17,8 +18,8 @@ import { FormSearchRoomComponent } from "../../../shared/formSearchRoom/formSear
         CommonModule,
         ListServicesComponent,
         SectionOneComponent,
-        FormSearchRoomComponent
-    ],
+        FormSearchRoomComponent,
+        ScrollBottomToTopComponent],
     templateUrl: './home.component.html',
 })
 export default class HomeComponent {
