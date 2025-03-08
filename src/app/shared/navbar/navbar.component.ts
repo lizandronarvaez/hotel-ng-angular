@@ -18,8 +18,7 @@ export class NavbarComponent {
         { path: '/hotel-angular', title: 'Inicio' },
         { path: '/hotel-angular/lists-rooms', title: 'Habitaciones' },
         { path: '/hotel-angular/find-booking', title: 'Mi reserva' },
-        { path: '/auth/login', title: 'Acceso Cliente' },
-        { path: '/auth/admin', title: 'Acceso Admin' },
+        { path: '/hotel-angular/contact', title: 'Contacto' },
     ]);
 
     public isActive = signal(false);
