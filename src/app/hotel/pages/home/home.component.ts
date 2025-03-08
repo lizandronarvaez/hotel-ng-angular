@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -13,13 +13,16 @@ import { ScrollBottomToTopComponent } from "../../../shared/scrollBottomToTop/sc
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [RouterModule,
+    imports: [
+        RouterModule,
         ReactiveFormsModule,
         CommonModule,
         ListServicesComponent,
         SectionOneComponent,
         FormSearchRoomComponent,
-        ScrollBottomToTopComponent],
+        ScrollBottomToTopComponent,
+        RouterLink
+    ],
     templateUrl: './home.component.html',
 })
 export default class HomeComponent {
