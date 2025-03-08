@@ -1,9 +1,36 @@
-<footer>
-    <div class="flex flex-col fixed bottom-0 w-full bg-[#2c3e50] text-center text-gray-300 p-2 font-medium mt-20">
-        <div class="flex flex-col">
-            <span class="text-xs">Hotel AngularNG</span>
-            <span class="text-xs"> Todos los derechos reservados © </span>
+
+<footer class="mt-44">
+    <div class="absolute bottom-0 w-full bg-[#2c3e50] text-gray-300 p-4 font-medium">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center justify-center space-y-2">
+                <div class="text-center">
+                    <span class="text-xs">Todos los derechos reservados © 2025</span>
+                    <span class="text-xs block mt-1">Desarrollado por Lizandro Narváez</span>
+                </div>
+
+                <div class="flex justify-center space-x-6 mt-2">
+                    <a [routerLink]="['/auth/login']"
+                       class="text-xs text-gray-300 hover:text-white hover:underline transition-colors duration-200">
+                        Acceso Cliente
+                    </a>
+                    <a [routerLink]="['/auth/admin']"
+                       class="text-xs text-gray-300 hover:text-white hover:underline transition-colors duration-200">
+                        Acceso Admin
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 mt-4 mx-auto w-3/4"></div>
+
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-xs text-gray-300 hover:text-white hover:underline transition-colors duration-200">
+                    Política de Privacidad
+                </a>
+                <a href="#" class="text-xs text-gray-300 hover:text-white hover:underline transition-colors duration-200">
+                    Términos y Condiciones
+                </a>
+            </div>
         </div>
-        <span class="text-xs">{{"Desarrollado por Lizandro Narváez"}}</span>
     </div>
 </footer>
+
