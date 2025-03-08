@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { routes } from '../../app.routes';
 
 interface NavItem {
     title: string,
@@ -15,9 +14,6 @@ interface NavItem {
     templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
-    public nav=routes.map(route=>{
-        console.log(route)
-    })
     public navItem = signal<NavItem[]>([
         { path: '/hotel-angular', title: 'Inicio' },
         { path: '/hotel-angular/lists-rooms', title: 'Habitaciones' },
