@@ -18,6 +18,11 @@ export const HOTEL_ROUTES: Routes = [
         loadComponent: () => import('./pages/booking-room/booking-room.component')
     },
     {
+        path: "contact",
+        title: 'Contacto',
+        loadComponent: () => import('./pages/contact/contact.component')
+    },
+    {
         path: "**",
         redirectTo: "",
         pathMatch: "full"
