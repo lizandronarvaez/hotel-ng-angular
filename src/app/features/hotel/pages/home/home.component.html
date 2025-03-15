@@ -1,0 +1,44 @@
+<div class="relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center"
+    style="background-image: url('https://www.hotelgumontgdl.com/img/slider_horizontal/1.jpg');">
+
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
+    <div class="relative z-10 text-center p-8 rounded-lg max-w-3xl mx-4">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+            Bienvenido a <span class="text-[#FF6B6B]">Hotel AngularNG</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl text-white mb-8 animate-fade-in delay-200">
+            Estás a un paso de sumergirte en una experiencia de confort, bienestar y elegancia.
+        </h2>
+
+        <div class="animate-fade-in delay-400">
+            <a [routerLink]="['/hotel-angular/lists-rooms']"
+                class="z-10 inline-block bg-[#FF6B6B] font-semibold hover:bg-[#E55A5A] transition-colors duration-300 text-white px-8 py-3 rounded-lg text-lg ">
+                Reserva ahora
+            </a>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div class="bg-white rounded-2xl border mt-10 p-8 md:p-12 lg:p-16">
+            <div class="text-center mb-10">
+                <h2 class="text-lg md:text-5xl font-bold text-gray-900 mb-4">
+                    Bienvenido al
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6B6B] to-[#E55A5A]">
+                        Hotel AngularNG
+                    </span>
+                </h2>
+                <p class="text-sm md:text-xl text-gray-900 font-light">
+                    Estás a un paso de sumergirte en una experiencia de confort, bienestar y elegancia.
+                </p>
+            </div>
+            <app-form-search-room />
+        </div>
+    </div>
+</div>
+<!-- Componentes secciones -->
+<app-list-rooms />
+<app-list-services />
+<app-scroll-bottom-to-top />
