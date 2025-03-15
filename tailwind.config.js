@@ -14,8 +14,5 @@ export default {
                 sans: ['Poppins', 'sans-serif'],
             }
         }
-    },
-    plugins: [
-        require('tailwind-clip-path'),
-    ],
+    }
 }
