@@ -2,17 +2,14 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import dayjs from 'dayjs';
-import { DpDatePickerModule, IDatePickerConfig } from 'ng2-date-picker';
 
-import { FormRoomsService } from '../service/formRooms.service';
-import { ValidatorsService } from '../service/validators.service';
-dayjs.locale('es');
+import { ValidatorsService } from '../../../core/service/validators.service';
+import { FormRoomsService } from '../../service/formRooms.service';
 
 @Component({
     selector: 'app-form-search-room',
     standalone: true,
-    imports: [DpDatePickerModule, RouterModule, ReactiveFormsModule, CommonModule],
+    imports: [RouterModule, ReactiveFormsModule, CommonModule],
     templateUrl: './formSearchRoom.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -23,16 +20,6 @@ export class FormSearchRoomComponent {
     public formRoomService = inject(FormRoomsService)
 
     private _router = inject(Router)
-
-    datePickerConfig: IDatePickerConfig = {
-        format: 'DD-MM-YYYY',
-        firstDayOfWeek: 'mo',
-        min: dayjs().startOf('day').format('DD-MM-YYYY'),
-    };
-
-    constructor() {
-        dayjs.locale('es');
-    }
 
     onSubmitSearchRooms(): void {
         if (this.formRoomService.getForm().invalid) {

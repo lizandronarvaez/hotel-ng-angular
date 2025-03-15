@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidatorsService } from './validators.service';
+import { ValidatorsService } from '../../core/service/validators.service';
 
 @Injectable({ providedIn: 'root' })
 export class FormRoomsService {

@@ -9,10 +9,10 @@
                 </p>
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
-                <dp-date-picker theme="dp-material" [config]="datePickerConfig" placeholder="Selecciona la fecha"
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" formControlName="startDate"
+                    <input type="date"
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                    formControlName="startDate"
                     (blur)="formRoomService.getForm().get('startDate')?.markAsTouched()">
-                </dp-date-picker>
             </div>
             @if (isValidField('startDate')) {
                 <span class="text-sm text-red-500">
@@ -28,9 +28,11 @@
                 </p>
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
-                <dp-date-picker theme="dp-material" [config]="datePickerConfig" placeholder="Selecciona la fecha"
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg" formControlName="endDate">
-                </dp-date-picker>
+
+                    <input type="date"
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                    formControlName="endDate"
+                    (blur)="formRoomService.getForm().get('endDate')?.markAsTouched()">
             </div>
             @if (isValidField('endDate')) {
                 <span class="text-sm text-red-500">
