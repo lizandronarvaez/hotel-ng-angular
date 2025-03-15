@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import dayjs from 'dayjs';
 
 @Injectable({ providedIn: 'root' })
 export class ValidatorsService {
@@ -42,29 +41,7 @@ export class ValidatorsService {
             } else if (field === "email") {
                 message = "Rellena el campo";
             }
-        } else if (control?.errors?.['invalidDateRange']) {
-            message = 'La fecha de salida no puede ser anterior a la de entrada';
         }
         return message;
-    }
-
-    dateRangeValidator(form: FormGroup): object | null {
-        const startDate = form.get('startDate')?.value;
-        const endDate = form.get('endDate')?.value;
-
-        if (!startDate || !endDate) {
-            return null;
-        }
-
-        const start = dayjs(startDate, 'DD-MM-YYYY');
-        const end = dayjs(endDate, 'DD-MM-YYYY');
-
-        if (end.isBefore(start)) {
-            form.get('endDate')?.setErrors({ invalidDateRange: true });
-            return { invalidDateRange: true };
-        } else {
-            form.get('endDate')?.setErrors(null);
-        }
-        return null;
     }
 }
