@@ -1,32 +1,39 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { AppService } from '../../../../core/service/app.service';
-import { ValidatorsService } from '../../../../core/service/validators.service';
+import { BookingService } from '../../services/booking.service';
 import { FormRoomsService } from '../../../../shared/service/formRooms.service';
+import { ValidatorsService } from '../../../../core/service/validators.service';
 
 
 @Component({
     selector: 'app-reservation',
-    standalone: true,
     imports: [ReactiveFormsModule, FormsModule],
-    templateUrl: './booking-room.component.html',
+    templateUrl: './booking-room.component.html'
 })
 export default class ReservationComponent {
+
+    private router = inject(Router);
+
     public appService = inject(AppService);
-    public validatorService = inject(ValidatorsService);
+    public bookingService = inject(BookingService);
     public formBuilder = inject(FormBuilder);
-    public formRoomService = inject(FormRoomsService)
-
-
+    public formRoomService = inject(FormRoomsService);
+    public validatorService = inject(ValidatorsService);
     public form: FormGroup = inject(FormBuilder).group({
-        confirmationCode: ['', [Validators.required]],
+        bookingCode: ['', [Validators.required]],
     })
 
     handleSubmitBooking(): void {
-        // this.appService.showMessagePage();
         if (this.form.invalid) {
             this.form.markAllAsTouched();
-        };
+            return;
+        }
+        const bookingCode = this.form.value.bookingCode;
+        this.router.navigateByUrl(`/hotel-angular/details-booking/${bookingCode}`);
 
     }
+
 }
