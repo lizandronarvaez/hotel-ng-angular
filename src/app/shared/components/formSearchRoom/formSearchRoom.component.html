@@ -9,15 +9,13 @@
                 </p>
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
-                    <input type="date"
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-                    formControlName="startDate"
-                    (blur)="formRoomService.getForm().get('startDate')?.markAsTouched()">
+                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                    formControlName="checkInDate" (blur)="formRoomService.getForm().get('checkInDate')?.markAsTouched()">
             </div>
-            @if (isValidField('startDate')) {
-                <span class="text-sm text-red-500">
-                    {{errorFieldMessage('startDate')}}
-                </span>
+            @if (isValidField('checkInDate')) {
+            <span class="text-sm text-red-500">
+                {{errorFieldMessage('checkInDate')}}
+            </span>
             }
         </div>
 
@@ -29,15 +27,13 @@
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
 
-                    <input type="date"
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-                    formControlName="endDate"
-                    (blur)="formRoomService.getForm().get('endDate')?.markAsTouched()">
+                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                    formControlName="checkOutDate" (blur)="formRoomService.getForm().get('checkOutDate')?.markAsTouched()">
             </div>
-            @if (isValidField('endDate')) {
-                <span class="text-sm text-red-500">
-                    {{errorFieldMessage('endDate')}}
-                </span>
+            @if (isValidField('checkOutDate')) {
+            <span class="text-sm text-red-500">
+                {{errorFieldMessage('checkOutDate')}}
+            </span>
             }
         </div>
 
@@ -46,21 +42,17 @@
                 <p class="block text-sm text-left font-semibold text-gray-700 mb-2">
                     Tipo de Habitación <span class="text-red-700">*</span>
                 </p>
-                <i
-                    class="ri-hotel-bed-line absolute left-3 bottom-3 text-gray-400 text-xl"></i>
+                <i class="ri-hotel-bed-line absolute left-3 bottom-3 text-gray-400 text-xl"></i>
                 <select class="w-full pl-10 pr-4 py-4 border border-gray-300 rounded-lg bg-white text-gray-700"
-                    formControlName="typeRoom">
+                    formControlName="roomType">
                     <option value="">Selecciona una opción</option>
-                    <option value="standar">Standar</option>
-                    <option value="premium">Premium</option>
-                    <option value="ejecutiva">Ejecutiva</option>
-                    <option value="familiar">Familiar</option>
+                    <option *ngFor="let type of roomTypes()" [value]="type">{{ type }}</option>
                 </select>
             </div>
-            @if (isValidField('typeRoom')) {
-                <span class="text-sm text-red-500">
-                    {{errorFieldMessage('typeRoom')}}
-                </span>
+            @if (isValidField('roomType')) {
+            <span class="text-sm text-red-500">
+                {{errorFieldMessage('roomType')}}
+            </span>
             }
         </div>
     </div>
@@ -74,4 +66,3 @@
         </button>
     </div>
 </form>
-
