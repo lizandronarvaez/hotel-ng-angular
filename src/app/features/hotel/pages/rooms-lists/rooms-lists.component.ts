@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { FiltersComponent } from "../../components/filters/filters.component";
 import { FormBuilder } from '@angular/forms';
-import { Room } from '../../interfaces/room.interface';
+import { Room } from '../../interfaces/rooms/room.interface';
 import { RoomsService } from '../../services/rooms.service';
 import { Subscription } from 'rxjs';
 import { FormSearchRoomComponent } from '../../../../shared/components/formSearchRoom/formSearchRoom.component';
@@ -13,9 +13,8 @@ import { FormRoomsService } from '../../../../shared/service/formRooms.service';
 
 @Component({
     selector: 'app-rooms-lists',
-    standalone: true,
     imports: [CommonModule, FormSearchRoomComponent, FiltersComponent, RouterLink],
-    templateUrl: './rooms-lists.component.html',
+    templateUrl: './rooms-lists.component.html'
 })
 export default class RoomsListsComponent implements OnInit, OnDestroy {
 
@@ -31,14 +30,8 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         const roomSubscription = this.roomService.getAllRooms()
             .subscribe({
-                next: (data) => {
-                    console.log(data);
-                    this.rooms.set(data.roomList);
-                },
-                error: (error) => {
-                    console.error('Error al obtener las habitaciones:', error);
-                    this.rooms.set([]);
-                }
+                next: (data) => this.rooms.set(data.roomList),
+                error: () => this.rooms.set([])
             });
         this.subscription.add(roomSubscription);
     };

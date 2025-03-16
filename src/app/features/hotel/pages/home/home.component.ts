@@ -10,7 +10,6 @@ import { ScrollBottomToTopComponent } from '../../../../shared/components/scroll
 
 @Component({
     selector: 'app-home',
-    standalone: true,
     imports: [
         RouterModule,
         ReactiveFormsModule,
@@ -21,7 +20,7 @@ import { ScrollBottomToTopComponent } from '../../../../shared/components/scroll
         ScrollBottomToTopComponent,
         RouterLink
     ],
-    templateUrl: './home.component.html',
+    templateUrl: './home.component.html'
 })
 export default class HomeComponent {
 
