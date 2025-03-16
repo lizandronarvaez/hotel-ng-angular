@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ResponseRoom } from '../interfaces/responseRooms.interface';
+import { ResponseRoom } from '../interfaces/rooms/responseRooms.interface';
 import { environments } from '../../../../environments/environments';
+import { RoomTypes } from '../interfaces/rooms/typesRooms.interface';
 
 
 
@@ -15,7 +16,16 @@ export class RoomsService {
     private backendUrl = environments.backendApiUrl;
     private httpClient = inject(HttpClient);
 
+    // Obtener todas las habtaciones
     getAllRooms(): Observable<ResponseRoom> {
         return this.httpClient.get<ResponseRoom>(`${this.backendUrl}/rooms/get-all-rooms`);
     }
+
+    // Obtener los tipos de habitaciones
+    getTypesRooms(): Observable<RoomTypes> {
+        return this.httpClient.get<RoomTypes>(`${this.backendUrl}/rooms/get-types-rooms`);
+    }
+
+
+
 }
