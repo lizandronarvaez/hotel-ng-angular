@@ -23,7 +23,7 @@ export const HOTEL_ROUTES: Routes = [
     },
     {
         path: "**",
-        redirectTo: "",
+        redirectTo: "/",
         pathMatch: "full"
     }
 ]
