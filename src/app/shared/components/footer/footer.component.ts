@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [CommonModule,RouterLink],
-  templateUrl: './footer.component.html',
+    selector: 'app-footer',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './footer.component.html'
 })
 export class FooterComponent { }

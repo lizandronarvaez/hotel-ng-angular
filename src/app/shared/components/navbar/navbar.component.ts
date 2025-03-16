@@ -9,13 +9,12 @@ interface NavItem {
 
 @Component({
     selector: 'app-navbar',
-    standalone: true,
     imports: [RouterModule, CommonModule],
-    templateUrl: './navbar.component.html',
+    templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
     public navItem = signal<NavItem[]>([
-        { path: '/hotel-angular', title: 'Inicio' },
+        { path: '/', title: 'Inicio' },
         { path: '/hotel-angular/lists-rooms', title: 'Habitaciones' },
         { path: '/hotel-angular/find-booking', title: 'Mi reserva' },
         { path: '/hotel-angular/contact', title: 'Contacto' },

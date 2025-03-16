@@ -1,33 +1,47 @@
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { ValidatorsService } from '../../../core/service/validators.service';
 import { FormRoomsService } from '../../service/formRooms.service';
+import { RoomsService } from '../../../features/hotel/services/rooms.service';
 
 @Component({
     selector: 'app-form-search-room',
-    standalone: true,
     imports: [RouterModule, ReactiveFormsModule, CommonModule],
     templateUrl: './formSearchRoom.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormSearchRoomComponent {
+export class FormSearchRoomComponent implements OnInit, OnDestroy {
+
 
     public formBuilder = inject(FormBuilder);
     public validatorService = inject(ValidatorsService);
     public formRoomService = inject(FormRoomsService)
+    public roomTypes = signal<string[]>([]);
 
-    private _router = inject(Router)
+    private router = inject(Router)
+    private hotelService = inject(RoomsService);
+    private subscription: Subscription = new Subscription();
+
+
+    ngOnInit(): void {
+        const suscriptionTypeRooms = this.hotelService.getTypesRooms().subscribe({
+            next: (data) => this.roomTypes.set(data),
+            error: () => this.roomTypes.set([])
+        })
+        this.subscription.add(suscriptionTypeRooms);
+    }
+
 
     onSubmitSearchRooms(): void {
         if (this.formRoomService.getForm().invalid) {
             this.formRoomService.getForm().markAllAsTouched();
             return;
         }
-
-        this._router.navigate(['/hotel-angular/lists-rooms'], {
+        this.router.navigate(['/hotel-angular/lists-rooms'], {
             queryParams: this.formRoomService.getForm().value
         });
     }
@@ -39,5 +53,8 @@ export class FormSearchRoomComponent {
     errorFieldMessage(field: string) {
         return this.validatorService.getErrorMessage(field, this.formRoomService.getForm());
     }
-
+    
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
 }

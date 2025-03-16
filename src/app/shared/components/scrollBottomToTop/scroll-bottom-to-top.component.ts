@@ -3,10 +3,9 @@ import { ChangeDetectionStrategy, Component, computed, HostListener, signal } fr
 
 @Component({
     selector: 'app-scroll-bottom-to-top',
-    standalone: true,
     imports: [CommonModule],
     templateUrl: './scroll-bottom-to-top.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScrollBottomToTopComponent {
 
