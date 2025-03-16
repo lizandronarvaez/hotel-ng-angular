@@ -3,9 +3,8 @@ import { LngLat, Map, Marker } from 'maplibre-gl';
 
 @Component({
     selector: 'app-mini-map',
-    standalone: true,
     imports: [],
-    templateUrl: './mini-map.component.html',
+    templateUrl: './mini-map.component.html'
 })
 export class MiniMapComponent implements AfterViewInit {
 

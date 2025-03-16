@@ -6,9 +6,8 @@ import { AppService } from '../../../../core/service/app.service';
 
 @Component({
     selector: 'app-form-contact',
-    standalone: true,
     imports: [ReactiveFormsModule, FormsModule],
-    templateUrl: './form-contact.component.html',
+    templateUrl: './form-contact.component.html'
 })
 export class FormContactComponent {
     public appService = inject(AppService);

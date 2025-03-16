@@ -7,10 +7,9 @@ import { ValidatorsService } from '../../../../core/service/validators.service';
 
 @Component({
     selector: 'app-register-page',
-    standalone: true,
     imports: [ReactiveFormsModule, FormsModule, RouterLink],
     templateUrl: './register-page.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class RegisterPageComponent {
     public appService = inject(AppService);
