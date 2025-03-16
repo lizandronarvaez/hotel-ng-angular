@@ -26,13 +26,13 @@ export class ValidatorsService {
 
         if (!control.errors) return null;
         if (control?.errors?.['required']) {
-            if (field === 'startDate') {
+            if (field === 'checkInDate') {
                 message = 'Selecciona el día de entrada';
-            } else if (field === 'endDate') {
+            } else if (field === 'checkOutDate') {
                 message = 'Selecciona el día de salida';
-            } else if (field === 'typeRoom') {
+            } else if (field === 'roomType') {
                 message = 'Selecciona el tipo de habitación';
-            } else if (field === "confirmationCode") {
+            } else if (field === "bookingCode") {
                 message = "Por favor, introduce un número de reserva válido";
             } else if (field === "fullName") {
                 message = "Rellena el campo";
