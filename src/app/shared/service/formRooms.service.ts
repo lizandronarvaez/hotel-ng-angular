@@ -4,12 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Injectable({ providedIn: 'root' })
 export class FormRoomsService {
 
-    private _formBuilder = inject(FormBuilder);
+    private formBuilder = inject(FormBuilder);
 
-    public searchRooms: FormGroup = this._formBuilder.group({
-        startDate: ['', Validators.required],
-        endDate: ['', Validators.required],
-        typeRoom: ['', Validators.required]
+
+    public searchRooms: FormGroup = this.formBuilder.group({
+        checkInDate: ['', Validators.required],
+        checkOutDate: ['', Validators.required],
+        roomType: ['', Validators.required]
     })
 
     getForm(): FormGroup {
@@ -18,9 +19,9 @@ export class FormRoomsService {
 
     resetForm(): void {
         this.searchRooms.reset({
-            startDate: '',
-            endDate: '',
-            typeRoom: '',
+            checkInDate: '',
+            checkOutDate: '',
+            roomType: '',
         });
     }
 }
