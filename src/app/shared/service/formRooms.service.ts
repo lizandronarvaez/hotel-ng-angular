@@ -5,8 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormRoomsService {
 
     private formBuilder = inject(FormBuilder);
-
-
     public searchRooms: FormGroup = this.formBuilder.group({
         checkInDate: ['', Validators.required],
         checkOutDate: ['', Validators.required],
