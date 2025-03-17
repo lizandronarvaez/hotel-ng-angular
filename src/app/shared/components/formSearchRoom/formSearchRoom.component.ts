@@ -46,14 +46,6 @@ export class FormSearchRoomComponent implements OnInit, OnDestroy {
         });
     }
 
-    isValidField(field: string) {
-        return this.validatorService.isValidField(field, this.formRoomService.getForm());
-    }
-
-    errorFieldMessage(field: string) {
-        return this.validatorService.getErrorMessage(field, this.formRoomService.getForm());
-    }
-    
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }

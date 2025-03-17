@@ -1,4 +1,3 @@
-<!-- Formulario -->
 <form [formGroup]="formRoomService.getForm()" (submit)="onSubmitSearchRooms()" class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -10,11 +9,12 @@
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
                 <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-                    formControlName="checkInDate" (blur)="formRoomService.getForm().get('checkInDate')?.markAsTouched()">
+                    formControlName="checkInDate"
+                    (blur)="formRoomService.getForm().get('checkInDate')?.markAsTouched()">
             </div>
-            @if (isValidField('checkInDate')) {
+            @if (validatorService.isValidField('checkInDate',formRoomService.getForm())) {
             <span class="text-sm text-red-500">
-                {{errorFieldMessage('checkInDate')}}
+                {{validatorService.getErrorMessage('checkInDate',formRoomService.getForm())}}
             </span>
             }
         </div>
@@ -28,11 +28,12 @@
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
 
                 <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
-                    formControlName="checkOutDate" (blur)="formRoomService.getForm().get('checkOutDate')?.markAsTouched()">
+                    formControlName="checkOutDate"
+                    (blur)="formRoomService.getForm().get('checkOutDate')?.markAsTouched()">
             </div>
-            @if (isValidField('checkOutDate')) {
+            @if (validatorService.isValidField('checkOutDate',formRoomService.getForm())) {
             <span class="text-sm text-red-500">
-                {{errorFieldMessage('checkOutDate')}}
+                {{validatorService.getErrorMessage('checkOutDate',formRoomService.getForm())}}
             </span>
             }
         </div>
@@ -49,9 +50,9 @@
                     <option *ngFor="let type of roomTypes()" [value]="type">{{ type }}</option>
                 </select>
             </div>
-            @if (isValidField('roomType')) {
+            @if (validatorService.isValidField('roomType',formRoomService.getForm())) {
             <span class="text-sm text-red-500">
-                {{errorFieldMessage('roomType')}}
+                {{validatorService.getErrorMessage('roomType',formRoomService.getForm())}}
             </span>
             }
         </div>
