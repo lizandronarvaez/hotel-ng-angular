@@ -18,24 +18,35 @@ import { FormRoomsService } from '../../../../shared/service/formRooms.service';
 })
 export default class RoomsListsComponent implements OnInit, OnDestroy {
 
-    public rooms = signal<Room[]>([]);
     public formBuilder = inject(FormBuilder);
+    public rooms = signal<Room[]>([]);
+
+    public numberPage = signal<number>(0);
+    private itemsPerPage = signal<number>(5);
+    public totalPages = signal<number>(0);
 
     private roomService = inject(RoomsService);
     private formRoomService = inject(FormRoomsService)
     private router = inject(Router)
     private route = inject(ActivatedRoute);
+
     private subscription: Subscription = new Subscription();
 
     ngOnInit(): void {
-        const roomSubscription = this.roomService.getAllRooms()
+        this.getAllRooms();
+    };
+    getAllRooms(): void {
+        const roomSubscription = this.roomService.getAllRooms(this.numberPage(), this.itemsPerPage())
             .subscribe({
-                next: (data) => this.rooms.set(data.roomList),
+                next: (data) => {
+                    this.rooms.set(data.roomList)
+                    this.totalPages.set(data.totalPages)
+                    console.log(data)
+                },
                 error: () => this.rooms.set([])
             });
         this.subscription.add(roomSubscription);
-    };
-
+    }
     getServiceIcon(serviceName: string): string {
         const name = serviceName.toLowerCase();
         if (name.includes('wi-fi')) return 'fas fa-wifi';
@@ -47,6 +58,18 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
         if (name.includes('tv')) return 'fas fa-tv';
 
         return 'ri-checkbox-circle-line';
+    }
+
+    handleChangePage(page: number): void {
+        this.numberPage.update((currentPage) => {
+            const newPage = currentPage + page;
+
+            if (newPage >= 0 && newPage < this.totalPages()) {
+                return newPage;
+            }
+            return currentPage;
+        });
+        this.getAllRooms();
     }
 
     ngOnDestroy(): void {

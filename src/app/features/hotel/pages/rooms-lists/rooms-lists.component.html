@@ -16,8 +16,7 @@
                         <!-- Listado de habitaciones -->
                         <ul class="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
                             @for (room of rooms(); track room.id) {
-                            <li
-                                class="bg-white rounded-xl duration-300 overflow-hidden">
+                            <li class="bg-white rounded-xl duration-300 overflow-hidden">
 
                                 <div class="lg:flex items-stretch">
                                     <!-- Imagen -->
@@ -76,5 +75,22 @@
             <i class="ri-paint-brush-line text-5xl text-gray-400"></i>
         </div>
         }
+
     </div>
+
+    @if (rooms().length ) {
+    <!-- todo: crar barra para navegación -->
+    <div class="space-x-2 text-center mt-5">
+        <button
+            class="bg-[#2c3e50] hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
+            (click)="handleChangePage(-1)">Anterior</button>
+
+        <span class="text-gray-700">
+            Página {{ numberPage() + 1 }} de {{ totalPages() }}
+        </span>
+        <button
+            class="bg-[#2c3e50] hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
+            (click)="handleChangePage(+1)">Siguiente</button>
+    </div>
+    }
 </div>
