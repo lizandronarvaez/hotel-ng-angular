@@ -20,6 +20,7 @@ export class ValidatorsService {
         const control = form.controls[field];
         return control.errors && control.touched;
     }
+
     getErrorMessage(field: string, form: FormGroup): string | null {
         const control = form.controls[field];
         let message = null;
@@ -40,7 +41,13 @@ export class ValidatorsService {
                 message = "Rellena el campo";
             } else if (field === "email") {
                 message = "Rellena el campo";
+            } else if (field === "message") {
+                message = "Rellena el campo";
             }
+        } else if (control?.errors?.['email']) {
+            message = "Introduce un email válido";
+        } else if (control?.errors?.['minlength']) {
+            message = 'El mensaje debe contener almenos 10 carácteres'
         }
         return message;
     }
