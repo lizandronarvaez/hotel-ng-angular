@@ -17,8 +17,10 @@ export class RoomsService {
     private httpClient = inject(HttpClient);
 
     // Obtener todas las habtaciones
-    getAllRooms(): Observable<ResponseRoom> {
-        return this.httpClient.get<ResponseRoom>(`${this.backendUrl}/rooms/get-all-rooms`);
+    getAllRooms(page: number, size: number): Observable<ResponseRoom> {
+        return this.httpClient.get<ResponseRoom>(`${this.backendUrl}/rooms/get-all-rooms`, {
+            params: { page, size }
+        });
     }
 
     // Obtener los tipos de habitaciones
