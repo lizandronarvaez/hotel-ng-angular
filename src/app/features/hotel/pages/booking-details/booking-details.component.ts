@@ -16,19 +16,25 @@ export default class BookingDetailsComponent implements OnInit {
     private bookingService = inject(BookingService);
 
     public bookingId = signal<string | null>(null);
-    // todo:data para mostrar la reserva
+
+    // TODO:data para mostrar la reserva
 
 
     ngOnInit(): void {
+
+        // verifica que tiene el parametro en la url
         if (!this.route.snapshot.paramMap.get('id')) {
             this.router.navigateByUrl('/hotel-angular/find-booking');
         }
+
+        // lo setea en el signal
         this.bookingId.set(this.route.snapshot.paramMap.get('id'));
-        
+
         const bookingId = this.bookingId();
         if (bookingId) {
             this.bookingService.getBookingByBookingCode(bookingId)
                 .pipe(
+                    // tranforma la data y obtiene los daos de la reserva
                     map((response) => {
                         return response.booking;
                     })
