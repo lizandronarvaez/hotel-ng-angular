@@ -31,9 +31,9 @@ export default class ReservationComponent {
             this.form.markAllAsTouched();
             return;
         }
+
         const bookingCode = this.form.value.bookingCode;
         this.router.navigateByUrl(`/hotel-angular/details-booking/${bookingCode}`);
-
     }
 
 }
