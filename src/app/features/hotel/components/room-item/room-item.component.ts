@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Room } from '../../interfaces/rooms/room.interface';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-room-item',
-    imports: [RouterLink,CommonModule],
+    imports: [CommonModule],
     templateUrl: './room-item.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
