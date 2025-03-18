@@ -1,0 +1,22 @@
+<li class="bg-white border border-gray-100 rounded-lg overflow-hidden animate-pulse mb-5">
+    <div class="flex justify-between">
+        <!-- Imagen -->
+        <div class="relative w-full">
+            <div class="w-52 h-52 bg-gray-200"></div>
+        </div>
+
+        <!-- Detalles -->
+        <div class="p-3 w-80">
+            <div class="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+            <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+            <div class="h-4 bg-gray-200 rounded w-5/6 mb-2"></div>
+            <div class="flex flex-wrap gap-1 mb-2">
+                @for (service of [1, 2, 3]; track service) {
+                    <div class="h-6 bg-gray-200 rounded-full w-20"></div>
+                }
+            </div>
+            <!-- Botón de reserva -->
+            <div class="w-full h-10 bg-gray-200 rounded-md"></div>
+        </div>
+    </div>
+</li>
