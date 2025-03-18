@@ -1,95 +1,55 @@
 <div class="bg-imageRooms bg-no-repeat bg-cover bg-top min-h-[200px] md:min-h-[350px]"></div>
 
 <div class="py-10 lg:py-28 min-h-screen -mt-56 p-5 mb-32 md:mb-0">
-    <div class="max-w-6xl mx-auto p-5 mt-52 lg:mt-32">
+    <div class="max-w-[1200px] mx-auto p-5 mt-52 lg:mt-32">
         <app-form-search-room />
 
         @if (rooms().length) {
+        <div class="flex mt-8">
+            <!--TODO: evento para filtrar las habitaciones -->
+            <app-filters/>
 
-        <!-- crear para enviar un evento desde aqui hacia el padre -->
-        <app-filters></app-filters>
-
-        <div class="w-full mx-auto flex flex-col md:flex-row mt-5 gap-5">
-            <div class="flex-1">
-                <div class="lg:flex lg:space-x-20">
-                    <div class="w-full">
-                        <!-- Listado de habitaciones -->
-                        <ul class="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
-                            @for (room of rooms(); track room.id) {
-                            <li class="bg-white rounded-xl duration-300 overflow-hidden">
-
-                                <div class="lg:flex items-stretch">
-                                    <!-- Imagen -->
-                                    <div class="flex-shrink-0 w-full lg:w-1/3">
-                                        <a href="#" class="block">
-                                            <img class="w-full h-48 md:h-64 lg:h-full object-cover"
-                                                src='assets/images/rooms/roomHotel1.jpg' alt="{{ room.roomType }}" />
-                                        </a>
-                                    </div>
-                                    <!-- Detalles -->
-                                    <div class="p-6 flex-1">
-                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
-                                            <a href="#">{{ room.roomType | titlecase }}</a>
-                                        </h3>
-                                        <!-- Precio -->
-                                        <div class="text-xl font-bold text-blue-600 mb-4">
-                                            {{ room.roomPrice/2 | number:'1.2-2' }}€
-                                            <span class="text-base font-normal text-gray-500">Por noche</span>
-                                        </div>
-                                        <!-- Descripción -->
-                                        <p class="text-gray-600 mb-4">
-                                            {{room.roomDescription }}
-                                        </p>
-
-                                    </div>
-                                    <!-- Servicios -->
-                                    <div class="p-6 bg-gray-50 lg:w-1/4">
-                                        <h4 class="text-lg font-semibold text-gray-700 mb-4">Servicios</h4>
-                                        <ul class="space-y-3">
-                                            @for (service of room.serviceRooms; track service.id) {
-                                            <li class="flex items-center text-gray-700">
-                                                <i [ngClass]="getServiceIcon(service.name)"
-                                                    class="text-blue-500 text-xl mr-3"></i>
-                                                <span>{{ service.name }}</span>
-                                            </li>
-                                            }
-                                            <!-- Botón de reserva -->
-                                            <a class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
-                                                [routerLink]="['/']" routerLinkActive="router-link-active">
-                                                Reservar
-                                                <i class="ri-checkbox-circle-line ml-2"></i>
-                                            </a>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            }
-                        </ul>
+            <div class="w-full mx-auto flex flex-col md:flex-row mt-5 gap-5">
+                <div class="flex-1">
+                    <div class="lg:flex lg:space-x-20">
+                        <div class="w-full px-5 pb-5">
+                            <!-- Listado de habitaciones -->
+                            <ul class="max-w-5xl mx-auto">
+                                @if (isLoading()) {
+                                <!-- Esqueleto de carga -->
+                                @for (service of [1, 2, 3]; track service) {
+                                    <app-skeleton-loader />
+                                }
+                                }@else{
+                                    @for (room of rooms(); track room.id) {
+                                        <app-room-item [room]="room" />
+                                    }
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         } @else {
-        <div class="mt-10 text-center">
-            <h2 class="text-3xl text-gray-400">En construcción</h2>
-            <i class="ri-paint-brush-line text-5xl text-gray-400"></i>
-        </div>
+            <div class="mt-10 text-center">
+                <h2 class="text-3xl text-gray-400">En construcción</h2>
+                <i class="ri-paint-brush-line text-5xl text-gray-400"></i>
+            </div>
         }
-
     </div>
 
     @if (rooms().length ) {
-    <!-- todo: crar barra para navegación -->
     <div class="space-x-2 text-center mt-5">
         <button
-            class="bg-[#2c3e50] hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
+            class="bg-[#FF6B6B] hover:bg-[#E55A5A] text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
             (click)="handleChangePage(-1)">Anterior</button>
 
         <span class="text-gray-700">
             Página {{ numberPage() + 1 }} de {{ totalPages() }}
         </span>
         <button
-            class="bg-[#2c3e50] hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
+            class="bg-[#FF6B6B] hover:bg-[#E55A5A] text-white font-semibold rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300"
             (click)="handleChangePage(+1)">Siguiente</button>
     </div>
     }
