@@ -8,7 +8,7 @@
                 </p>
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
-                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 outline-none"
                     formControlName="checkInDate"
                     (blur)="formRoomService.getForm().get('checkInDate')?.markAsTouched()">
             </div>
@@ -27,7 +27,7 @@
                 <i
                     class="ri-calendar-2-line absolute left-3 bottom-1 transform -translate-y-1/2 text-gray-400 text-xl"></i>
 
-                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
+                <input type="date" class="w-full pl-10 pr-4 py-3 border border-gray-300 outline-none"
                     formControlName="checkOutDate"
                     (blur)="formRoomService.getForm().get('checkOutDate')?.markAsTouched()">
             </div>
@@ -44,7 +44,7 @@
                     Tipo de Habitación <span class="text-red-700">*</span>
                 </p>
                 <i class="ri-hotel-bed-line absolute left-3 bottom-3 text-gray-400 text-xl"></i>
-                <select class="w-full pl-10 pr-4 py-4 border border-gray-300 rounded-lg bg-white text-gray-700"
+                <select class="w-full pl-10 pr-4 py-4 border border-gray-300 bg-white text-gray-700 outline-none"
                     formControlName="roomType">
                     <option value="">Selecciona una opción</option>
                     <option *ngFor="let type of roomTypes()" [value]="type">{{ type }}</option>
