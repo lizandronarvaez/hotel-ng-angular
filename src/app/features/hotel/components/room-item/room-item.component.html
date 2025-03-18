@@ -1,0 +1,41 @@
+<li class="bg-white border border-gray-100 rounded overflow-hidden mb-5">
+    <div class="flex justify-between">
+        <!-- Imagen -->
+        <div class="relative">
+            <a class="block">
+                <img class="w-full h-44 object-contain" src='assets/images/rooms/roomHotel1.jpg'
+                    alt="{{ room().roomType }}" />
+                <!-- Etiqueta de precio -->
+                <div
+                    class="absolute bottom-6 right-0 bg-white rounded-md px-2 py-1 text-sm font-semibold text-blue-600 shadow-sm">
+                    {{ room().roomPrice / 2 | number:'1.2-2' }}€ <span class="text-gray-400">/noche</span>
+                </div>
+            </a>
+        </div>
+        <!-- Detalles -->
+        <div class="p-3 w-80">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                <a>{{ room().roomType | titlecase }}</a>
+            </h3>
+            <!-- Descripción -->
+            <p class="text-gray-600 text-xs mb-2 line-clamp-2">
+                {{ room().roomDescription }}
+            </p>
+            <!-- Servicios -->
+            <div class="flex flex-wrap gap-1 mb-2">
+                @for (service of room().serviceRooms; track service.id) {
+                <span class="flex items-center text-gray-600 text-xs bg-gray-50 rounded-full px-2 py-1">
+                    <i [ngClass]="getServiceIcon(service.name)" class="text-blue-500 text-sm mr-1"></i>
+                    {{ service.name }}
+                </span>
+                }
+            </div>
+            <!-- Botón de reserva -->
+            <button
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-3 py-1.5 text-sm inline-flex items-center justify-center transition-colors duration-300">
+                Reservar
+                <i class="ri-checkbox-circle-line ml-1"></i>
+            </button>
+        </div>
+    </div>
+</li>
