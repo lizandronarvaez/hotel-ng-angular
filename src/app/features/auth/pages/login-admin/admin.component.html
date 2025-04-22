@@ -1,0 +1,73 @@
+<form class="space-y-6" >
+    <!-- Título -->
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 font-poppins">
+        Acceso Administrador
+    </h2>
+
+    <!-- Campo de email -->
+    <div class="space-y-2">
+        <label for="email" class="block text-sm font-medium text-gray-700">
+            Email de acceso<span class="text-red-700">*</span>
+        </label>
+        <div class="relative">
+            <i class="ri-mail-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+            <input id="email"
+                class="w-full pl-10 pr-4 py-3 border border-gray-300 0 outline-none "
+                type="email" placeholder="Email de acceso" formControlName="email" />
+        </div>
+        <!-- @if (validatorForms.isValidField('email', form)) {
+        <span class="text-sm text-red-500 flex items-center mt-1">
+            <i class="ri-error-warning-line mr-1"></i>
+            {{validatorForms.getErrorMessage('email', form)}}
+        </span>
+        } -->
+    </div>
+
+    <!-- Campo de contraseña -->
+    <div class="space-y-2">
+        <label for="password" class="block text-sm font-medium text-gray-700">
+            Contraseña<span class="text-red-700">*</span>
+        </label>
+        <div class="relative">
+            <i class="ri-lock-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+            <input id="password"
+                class="w-full pl-10 pr-4 py-3 border border-gray-300 outline-none "
+                type="password" placeholder="Contraseña de acceso" formControlName="password" />
+        </div>
+        <!-- @if (validatorForms.isValidField('password', form)) {
+        <span class="text-sm text-red-500 flex items-center mt-1">
+            <i class="ri-error-warning-line mr-1"></i>
+            {{validatorForms.getErrorMessage('password', form)}}
+        </span>
+        } -->
+    </div>
+
+    <!-- Campo de código de autorización -->
+    <div class="space-y-2">
+        <label for="authCode" class="block text-sm font-medium text-gray-700">
+            Código de autorización<span class="text-red-700">*</span>
+        </label>
+        <div class="relative">
+            <i class="ri-key-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+            <input id="authCode"
+                class="w-full pl-10 pr-4 py-3 border border-gray-300 outline-none"
+                type="text" placeholder="Código de autorización" formControlName="authCode" />
+        </div>
+        <!-- @if (validatorForms.isValidField('authCode', form)) {
+        <span class="text-sm text-red-500 flex items-center mt-1">
+            <i class="ri-error-warning-line mr-1"></i>
+            {{validatorForms.getErrorMessage('authCode', form)}}
+        </span>
+        } -->
+    </div>
+
+    <!-- Botón de acceso -->
+    <div class="mt-6">
+        <button
+            class="w-full px-4 py-3 bg-[#1f2b38] text-white flex items-center justify-center"
+            type="submit">
+            <i class="ri-admin-line mr-2"></i>
+            Entrar como administrador
+        </button>
+    </div>
+</form>
