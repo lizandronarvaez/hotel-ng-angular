@@ -1,0 +1,73 @@
+<div class="container mx-auto mt-20 p-4 max-w-7xl">
+
+    <div class="flex items-center justify-between mb-8 p-4 bg-white rounded-lg shadow-sm">
+        <div class="flex items-center space-x-3">
+            <i class="ri-layout-6-fill ri-2x text-stone-400"></i>
+            <h1 class="text-2xl md:text-3xl font-bold text-stone-400">Panel administración</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+                <div class="p-5 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                    LN
+                </div>
+                <span class="hidden md:inline text-sm font-medium">Lizandro Narváez</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+
+        <aside class="w-full md:w-64 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-4 border-b border-gray-100">
+                <h2 class="font-medium text-gray-700 flex items-center">
+                    <i class="ri-menu-line mr-2 text-gray-500"></i>
+                    <span>Menú Principal</span>
+                </h2>
+            </div>
+
+            <nav>
+                <ul class="divide-y divide-gray-100">
+                    <li>
+                        <a [routerLink]="['/admin/dashboard']"
+                           class="flex items-center p-4 text-gray-600 transition-colors">
+                            <i class="ri-dashboard-line mr-3 text-lg text-gray-400"></i>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/admin/list-rooms']"
+                           class="flex items-center p-4 text-gray-600">
+                            <i class="ri-hotel-bed-line mr-3 text-lg text-gray-400"></i>
+                            <span class="font-medium">Habitaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/admin/list-users']"
+                           class="flex items-center p-4 text-gray-600">
+                            <i class="ri-user-line mr-3 text-lg text-gray-400"></i>
+                            <span class="font-medium">Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/admin/list-bookings']"
+                           class="flex items-center p-4 text-gray-600">
+                            <i class="ri-calendar-check-line mr-3 text-lg text-gray-400"></i>
+                            <span class="font-medium">Reservas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                           class="flex items-center p-4 text-gray-600">
+                           <i class="ri-logout-box-r-line mr-3 text-lg text-red-400"></i>
+                            <span class="font-medium">Cerrar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="flex-1 bg-white p-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
