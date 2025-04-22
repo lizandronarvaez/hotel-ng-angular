@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-administration-hotel-bookings',
+  selector: 'app-admin-hotel-bookings',
   imports: [],
-  templateUrl:'./administration-hotel-bookings.component.html',
+  templateUrl:'./admin-hotel-bookings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AdministrationHotelBookingsComponent { }
