@@ -3,14 +3,14 @@
     <ul class="flex flex-col items-center gap-4">
         <!-- Campo de búsqueda por texto -->
         <li class="w-full flex-1">
-            <input type="text"
+            <input #textInput (keydown)="handleFilterTextInput(textInput.value)" type="text"
                 placeholder="Buscar por tipo o descripción..."
                 class="bg-white text-gray-800 outline-none text-xs p-2.5 w-full border border-gray-200" />
         </li>
 
         <!-- Filtro por número máximo de huéspedes -->
         <li class="w-full flex-1">
-            <select
+            <select #numPersonsSelect (change)="handleFilterNumPersons(numPersonsSelect.value)"
                 class="bg-white text-gray-800 text-sm cursor-pointer p-2.5 w-full border border-gray-200 ">
                 <option value="">Máximo de huéspedes</option>
                 <option value="1">1 huésped</option>
@@ -23,7 +23,7 @@
 
         <!-- Filtro por precio -->
         <li class="w-full flex-1">
-            <select
+            <select #priceSelect (change)="handleFilterPrice(priceSelect.value)"
                 class="bg-white text-gray-800 text-sm cursor-pointer p-2.5 w-full border border-gray-200 ">
                 <option value="">Ordenado por defecto</option>
                 <option value="price-desc">Mayor a menor precio</option>
