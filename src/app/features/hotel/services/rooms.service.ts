@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { ResponseRoom } from '../interfaces/rooms/responseRooms.interface';
 import { environments } from '../../../../environments/environments';
 import { RoomTypes } from '../interfaces/rooms/typesRooms.interface';
+import { SearchRoom } from '../interfaces/rooms/searchRooms.interface';
+import { ResponseRoomsByDateAndType } from '../interfaces/rooms/responseSearchRoomsByDateAndType.interface';
 
 
 
@@ -28,6 +30,13 @@ export class RoomsService {
         return this.httpClient.get<RoomTypes>(`${this.backendUrl}/rooms/get-types-rooms`);
     }
 
+    // obtener habitacion por fecha y tipo
+    getRoomsAvailablesByDateAndType({ checkInDate, checkOutDate, roomType }: SearchRoom): Observable<ResponseRoomsByDateAndType> {
+        return this.httpClient.get<ResponseRoomsByDateAndType>(`${this.backendUrl}/rooms/available-rooms-by-date-and-type`,
+            {
+                params: { checkInDate, checkOutDate, roomType }
+            })
+    }
 
 
 }
