@@ -3,12 +3,12 @@
         <!-- Imagen -->
         <div class="relative">
             <a class="block">
-                <img class="w-full h-44 object-contain" src='assets/images/rooms/roomHotel1.jpg'
+                <img class="w-full h-44 object-contain"
+                    [src]="'assets/images/rooms/roomHotel1.jpg'"
                     alt="{{ room().roomType }}" />
                 <!-- Etiqueta de precio -->
-                <div
-                    class="absolute bottom-6 right-0 bg-white rounded-md px-2 py-1 text-sm font-semibold text-blue-600 shadow-sm">
-                    {{ room().roomPrice / 2 | number:'1.2-2' }}€ <span class="text-gray-400">/noche</span>
+                <div class="absolute bottom-6 right-0 bg-white rounded-md px-2 py-1 text-sm">
+                    {{ room().roomPrice / 2 | number:'1.2-2' }}€ <span>/noche</span>
                 </div>
             </a>
         </div>
