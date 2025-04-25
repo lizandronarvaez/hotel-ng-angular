@@ -4,18 +4,18 @@ import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { FiltersComponent } from "../../components/filters/filters.component";
 import { FormRoomsService } from '../../../../shared/service/formRooms.service';
 import { FormSearchRoomComponent } from '../../../../shared/components/formSearchRoom/formSearchRoom.component';
 import { Room } from '../../interfaces/rooms/room.interface';
 import { RoomItemComponent } from "../../components/room-item/room-item.component";
-import { RoomsService } from '../../services/rooms.service';
 import { SkeletonLoaderComponent } from "../../components/skeleton-loader/squeleton-loader.component";
 import { SearchRoom } from '../../interfaces/rooms/searchRooms.interface';
+import { RoomsService } from '../../../../core/service/room.service';
+import { RoomFiltersComponent } from "../../components/room-filters/room-filters.component";
 
 @Component({
     selector: 'app-rooms-lists',
-    imports: [CommonModule, FormSearchRoomComponent, FiltersComponent, SkeletonLoaderComponent, RoomItemComponent],
+    imports: [CommonModule, FormSearchRoomComponent, SkeletonLoaderComponent, RoomItemComponent, RoomFiltersComponent],
     templateUrl: './rooms-lists.component.html'
 })
 export default class RoomsListsComponent implements OnInit, OnDestroy {
@@ -103,6 +103,7 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
         console.log(value)
 
     }
+    
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }

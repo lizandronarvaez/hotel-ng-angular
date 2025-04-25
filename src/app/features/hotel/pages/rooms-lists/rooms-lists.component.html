@@ -7,7 +7,7 @@
         @if (rooms().length) {
         <div class="flex mt-8">
             <!--TODO: evento para filtrar las habitaciones -->
-            <app-filters (priceFilter)="handleFilterPrice($event)" (personsFilter)="handleFilterPersons($event)"
+            <app-room-filters (priceFilter)="handleFilterPrice($event)" (personsFilter)="handleFilterPersons($event)"
                 (textInputFilter)="handleFilterTextInput($event)" />
 
             <div class="w-full mx-auto flex flex-col md:flex-row mt-5 gap-5">
