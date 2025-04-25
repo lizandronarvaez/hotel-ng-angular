@@ -13,10 +13,6 @@ export const HOTEL_ROUTES: Routes = [
         loadComponent: () => import('./pages/booking-room/booking-room.component'),
     },
     {
-        path: "details-booking/:id",
-        loadComponent: () => import('./pages/booking-details/booking-details.component')
-    },
-    {
         path: "contact",
         title: 'Contacto',
         loadComponent: () => import('./pages/contact/contact.component')
