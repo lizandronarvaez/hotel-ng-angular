@@ -1,13 +1,13 @@
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { ValidatorsService } from '../../../core/service/validators.service';
 import { FormRoomsService } from '../../service/formRooms.service';
-import { RoomsService } from '../../../features/hotel/services/rooms.service';
+import { RoomsService } from '../../../core/service/room.service';
 import { SearchRoom } from '../../../features/hotel/interfaces/rooms/searchRooms.interface';
+import { ValidatorsService } from '../../../core/service/validators.service';
 
 @Component({
     selector: 'app-form-search-room',
@@ -26,12 +26,12 @@ export class FormSearchRoomComponent implements OnInit, OnDestroy {
 
     private activateRouter = inject(ActivatedRoute)
     private router = inject(Router)
-    private hotelService = inject(RoomsService);
+    private roomService = inject(RoomsService);
     private subscription: Subscription = new Subscription();
 
 
     ngOnInit(): void {
-        this.subscription = this.hotelService.getTypesRooms()
+        this.subscription = this.roomService.getTypesRooms()
             .subscribe({
                 next: (data) => this.roomTypes.set(data),
                 error: () => this.roomTypes.set([])
