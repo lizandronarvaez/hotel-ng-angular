@@ -22,6 +22,10 @@ export const routes: Routes = [
         loadChildren: () => import("./features/admin/admin.routes").then(mod => mod.ADMIN_ROUTES)
     },
     {
+        path:'booking',
+        loadChildren:()=>import('./features/booking/booking.routes').then(mod=>mod.BOOKING_ROUTES)
+    },
+    {
         path: "**",
         redirectTo: "",
         pathMatch: 'full'
