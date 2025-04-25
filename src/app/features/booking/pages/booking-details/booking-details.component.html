@@ -1,0 +1,39 @@
+<div>
+    <h1 class="text-2xl text-stone-400 uppercase"><i class="ri-info-card-line"></i>Información Reserva Habitación</h1>
+    <hr>
+    <div class=" max-w-screen-xl mx-auto text-stone-600 p-5 space-y-5">
+        <h2 class="text-stone-500">Detalles de la reserva <span class="font-bold">#{{bookingId()}}</span></h2>
+        <!-- Datos cliente -->
+        <div class="p-5  bg-stone-100">
+            <span><i class="ri-user-3-line"></i>Datos del Cliente</span>
+            <div class="p-5">
+                <p>Lizandro Narváez</p>
+                <p>12345678</p>
+            </div>
+        </div>
+
+        <!-- Datos reserva -->
+         <div class="p-5 bg-stone-100">
+            <span><i class="ri-file-list-line"></i>Datos de la reserva</span>
+            <div class="p-5">
+                <p>Check In: 15-04-2025</p>
+                <p>Check Out: 15-04-2025</p>
+                <p>Tipo habitación: PREMIUM</p>
+                <p>Huéspedes: 2</p>
+                <p>Total noches: 2</p>
+                <p>Precio/Noche: 50€</p>
+                <p>Total: 100€</p>
+            </div>
+         </div>
+
+         <!-- botones para imprimir y cancelar reserva -->
+         <div class="flex justify-between">
+            <button class="px-3 py-2 bg-[#2c3e50] text-white font-semibold">
+                Imprimir Reserva
+            </button>
+            <button class="px-3 py-2 bg-stone-500 text-white">
+                Cancelar Reserva
+            </button>
+         </div>
+    </div>
+</div>
