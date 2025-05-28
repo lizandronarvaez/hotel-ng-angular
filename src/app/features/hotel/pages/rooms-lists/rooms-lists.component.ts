@@ -4,17 +4,18 @@ import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { FiltersComponent } from "../../components/filters/filters.component";
 import { FormRoomsService } from '../../../../shared/service/formRooms.service';
 import { FormSearchRoomComponent } from '../../../../shared/components/formSearchRoom/formSearchRoom.component';
 import { Room } from '../../interfaces/rooms/room.interface';
 import { RoomItemComponent } from "../../components/room-item/room-item.component";
-import { RoomsService } from '../../services/rooms.service';
 import { SkeletonLoaderComponent } from "../../components/skeleton-loader/squeleton-loader.component";
+import { SearchRoom } from '../../interfaces/rooms/searchRooms.interface';
+import { RoomsService } from '../../../../core/service/room.service';
+import { RoomFiltersComponent } from "../../components/room-filters/room-filters.component";
 
 @Component({
     selector: 'app-rooms-lists',
-    imports: [CommonModule, FormSearchRoomComponent, FiltersComponent, SkeletonLoaderComponent, RoomItemComponent],
+    imports: [CommonModule, FormSearchRoomComponent, SkeletonLoaderComponent, RoomItemComponent, RoomFiltersComponent],
     templateUrl: './rooms-lists.component.html'
 })
 export default class RoomsListsComponent implements OnInit, OnDestroy {
@@ -40,7 +41,7 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
 
     getAllRooms(page: number): void {
         this.isLoading.set(true);
-        const roomSubscription = this.roomService.getAllRooms(page, this.itemsPerPage())
+        this.subscription = this.roomService.getAllRooms(page, this.itemsPerPage())
             .subscribe({
                 next: (data) => {
                     this.rooms.set(data.roomList);
@@ -51,9 +52,7 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
                     this.rooms.set([]);
                     this.isLoading.set(false);
                 }
-
             });
-        this.subscription.add(roomSubscription);
     }
 
     handleChangePage(page: number): void {
@@ -66,6 +65,45 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
         });
     }
 
+    // buscar habitaciones por fecha y tipo
+    handleSearchRoomsByDateAndType(formData: SearchRoom): void {
+        // llamar al servicio
+        this.roomService.getRoomsAvailablesByDateAndType(formData)
+            .subscribe({
+                next: (data) => {
+                    this.rooms.set(data.roomList);
+                    this.isLoading.set(false)
+                },
+                error: () => {
+                    this.rooms.set([]);
+                    this.isLoading.set(false);
+                }
+            });
+    }
+
+    // manejador de filtros
+    handleFilterPrice(value: string): void {
+        console.log(value);
+
+        switch (value) {
+            case "price-asc":
+                this.rooms.update(rooms => [...rooms].sort((a, b) => a.roomPrice - b.roomPrice));
+                break;
+            case "price-desc":
+                this.rooms.update(rooms => [...rooms].sort((a, b) => b.roomPrice - a.roomPrice));
+                break;
+        }
+    }
+
+    handleFilterPersons(value: string): void {
+        console.log(value)
+    }
+
+    handleFilterTextInput(value: string): void {
+        console.log(value)
+
+    }
+    
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }

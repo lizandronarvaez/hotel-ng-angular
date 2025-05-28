@@ -7,26 +7,25 @@ export const AUTH_ROUTES: Routes = [
         children: [
             {
                 path: "login",
-                title: 'Hotel AngularNG - Login',
-                loadComponent: () => import('./pages/login-page/login-page.component')
+                title: 'Hotel AngularNG - Login Cliente',
+                loadComponent: () => import('./pages/login-user/login-page.component')
             },
             {
                 path: "register",
-                title: 'Hotel AngularNG - Registro',
-                loadComponent: () => import('./pages/register-page/register-page.component')
+                title: 'Hotel AngularNG - Registro Cliente',
+                loadComponent: () => import('./pages/register-user/register-page.component')
             },
             {
                 path: "admin",
                 title: 'Hotel AngularNG - Acceso Admin',
-                loadComponent: () => import('./pages/admin/admin.component')
+                loadComponent: () => import('./pages/login-admin/admin.component')
             },
             {
                 path: "**",
-                redirectTo: "",
+                redirectTo: "login",
                 pathMatch: "full"
             }
         ]
-    }
+    },
 
-
-]
+];

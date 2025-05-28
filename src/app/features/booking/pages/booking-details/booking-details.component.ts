@@ -1,8 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { map } from 'rxjs';
+import { BookingService } from '../../../../core/service/booking.service';
 
-import { BookingService } from '../../services/booking.service';
 
 @Component({
     selector: 'app-booking-details',

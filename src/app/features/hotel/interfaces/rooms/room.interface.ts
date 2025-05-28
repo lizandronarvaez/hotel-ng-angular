@@ -5,8 +5,8 @@ export interface Room {
   roomType:        string;
   roomPrice:       number;
   roomMaxOfGuest:  number;
-  roomImageUrl:    string;
+  roomImageUrl?:    string;
   roomDescription: string;
   serviceRooms:    ServiceRoom[];
-  bookings:        null;
+  bookings?:        null;
 }

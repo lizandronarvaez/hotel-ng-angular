@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Room } from '../../interfaces/rooms/room.interface';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Room } from '../../interfaces/rooms/room.interface';
 
 @Component({
     selector: 'app-room-item',
@@ -12,6 +14,11 @@ export class RoomItemComponent {
 
     public room = input.required<Room>();
 
+    private router=inject(Router);
+
+    handleCreateBooking():void{
+        this.router.navigateByUrl("/booking/create-booking")
+    }
     // obteiene el icon de los servicios de la habitación
     getServiceIcon(serviceName: string): string {
         const name = serviceName.toLowerCase();

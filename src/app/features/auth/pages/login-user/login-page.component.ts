@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+// import { tap } from 'rxjs';
 import { AppService } from '../../../../core/service/app.service';
 import { ValidatorsService } from '../../../../core/service/validators.service';
 
@@ -29,11 +29,12 @@ export default class LoginPageComponent {
           this.appService.showMessagePage();
             this.form.markAllAsTouched();
         };
-        console.log(this.form.value)
-        this.httpClient.post("http://localhost:3000/api/v1/users/auth/login", this.form.value).pipe(
-            tap(data => {
-                console.log(data)
-            })
-        ).subscribe()
+
+        this.router.navigateByUrl("/auth/user/profile-user");
+        // this.httpClient.post("http://localhost:3000/api/v1/users/auth/login", this.form.value).pipe(
+        //     tap(data => {
+        //         console.log(data)
+        //     })
+        // ).subscribe();
     }
 }
