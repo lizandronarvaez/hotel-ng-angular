@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, HostListener, signal } from '@angular/core';
 
 @Component({
     selector: 'app-scroll-bottom-to-top',
-    imports: [CommonModule],
     templateUrl: './scroll-bottom-to-top.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
