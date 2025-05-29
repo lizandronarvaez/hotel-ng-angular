@@ -1,6 +1,5 @@
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, output, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -11,12 +10,11 @@ import { ValidatorsService } from '../../../core/service/validators.service';
 
 @Component({
     selector: 'app-form-search-room',
-    imports: [RouterModule, ReactiveFormsModule, CommonModule],
+    imports: [RouterModule, ReactiveFormsModule],
     templateUrl: './formSearchRoom.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSearchRoomComponent implements OnInit, OnDestroy {
-
 
     public formBuilder = inject(FormBuilder);
     public validatorService = inject(ValidatorsService);
@@ -36,10 +34,8 @@ export class FormSearchRoomComponent implements OnInit, OnDestroy {
                 next: (data) => this.roomTypes.set(data),
                 error: () => this.roomTypes.set([])
             })
-
     }
-
-
+    
     onSubmitSearchRooms(): void {
         if (this.formRoomService.getForm().invalid) {
             this.formRoomService.getForm().markAllAsTouched();
