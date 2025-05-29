@@ -1,5 +1,4 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -15,7 +14,7 @@ import { RoomFiltersComponent } from "../../components/room-filters/room-filters
 
 @Component({
     selector: 'app-rooms-lists',
-    imports: [CommonModule, FormSearchRoomComponent, SkeletonLoaderComponent, RoomItemComponent, RoomFiltersComponent],
+    imports: [FormSearchRoomComponent, SkeletonLoaderComponent, RoomItemComponent, RoomFiltersComponent],
     templateUrl: './rooms-lists.component.html'
 })
 export default class RoomsListsComponent implements OnInit, OnDestroy {
@@ -103,7 +102,7 @@ export default class RoomsListsComponent implements OnInit, OnDestroy {
         console.log(value)
 
     }
-    
+
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
