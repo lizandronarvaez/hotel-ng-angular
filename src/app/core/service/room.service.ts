@@ -15,6 +15,16 @@ export class RoomsService {
     private backendUrl = environments.backendApiUrl;
     private httpClient = inject(HttpClient);
 
+    // crea una habitacion nueva(admin)
+    createRoom(): void {
+        this.httpClient.post(`${this.backendUrl}/rooms/create-room`, {})
+    }
+
+    // actualiza una habitacion(solo admin)
+    updateRoom(): void {
+        this.httpClient.put(`${this.backendUrl}/rooms/update-room`, {})
+    }
+
     // Obtener todas las habtaciones
     getAllRooms(page: number, size: number): Observable<ResponseRoom> {
         return this.httpClient.get<ResponseRoom>(`${this.backendUrl}/rooms/get-all-rooms`, {
