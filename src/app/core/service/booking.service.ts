@@ -15,12 +15,10 @@ export class BookingService {
   private httpClient = inject(HttpClient);
 
   // Crear un nueva reserva
-  createBooking(idRoom: any, room: any, client: any): Observable<any> {
-    const bookingData = { room, client };
+  createBooking(roomId: any, booking: any, client: any): Observable<any> {
+    const bookingData = { booking, client };
     console.log(bookingData);
-    return this.httpClient.post<boolean>(`${this.backendUrl}/bookings/new-reservation/book-room`, bookingData, {
-      params: { idRoom }
-    });
+    return this.httpClient.post<boolean>(`${this.backendUrl}/bookings/new-reservation/book-room/${roomId}`, bookingData);
   }
 
   // eliminar reserva

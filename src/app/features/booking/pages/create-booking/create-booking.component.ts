@@ -15,8 +15,8 @@ export default class CreateBookingComponent {
 
   public form: FormGroup = this.fb.group({
     booking: this.fb.group({
-      checkIn: ['02-06-2025', Validators.required],
-      checkOut: ['10-06-2025', Validators.required],
+      checkInDate: ['2025-06-20', Validators.required],
+      checkOutDate: ['2025-06-25', Validators.required],
       guest: ['2', Validators.required],
       pricePerNight: ['50', Validators.required],
       totalNights: ['2', Validators.required],
@@ -35,10 +35,12 @@ export default class CreateBookingComponent {
       return;
     }
 
-    this.bookingService.createBooking("1", this.form.get("room")?.value, this.form.get("client")?.value)
-      .subscribe({
+    this.bookingService.createBooking("5", this.form.get("booking")?.value, this.form.get("client")?.value)
+      .subscribe(
+        {
           next: (response) => console.log("✔ Reserva creada con éxito", response),
           error: (err) => console.error("❌ Error al crear la reserva:", err)
-        })
+        }
+      )
   }
 }
