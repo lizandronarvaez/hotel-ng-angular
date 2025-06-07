@@ -14,10 +14,9 @@ export default class CreateBookingComponent {
   private fb = inject(FormBuilder);
 
   public form: FormGroup = this.fb.group({
-    room: this.fb.group({
+    booking: this.fb.group({
       checkIn: ['02-06-2025', Validators.required],
       checkOut: ['10-06-2025', Validators.required],
-      roomType: ['STANDARD', Validators.required],
       guest: ['2', Validators.required],
       pricePerNight: ['50', Validators.required],
       totalNights: ['2', Validators.required],
@@ -26,7 +25,7 @@ export default class CreateBookingComponent {
     client: this.fb.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      phoneNumber: ['', Validators.required],
+      numberPhone: ['', Validators.required],
     }),
   });
 
