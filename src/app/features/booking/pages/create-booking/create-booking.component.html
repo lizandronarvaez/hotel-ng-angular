@@ -18,14 +18,14 @@
               <i class="ri-calendar-check-line mr-2 text-stone-400"></i>
               <div class="flex flex-col">
                 <label class="font-medium" for="checkIn">Check In:</label>
-                <input class="bg-transparent border-none" formControlName="checkIn" readonly />
+                <input type="date" class="bg-transparent border-none outline-none" formControlName="checkInDate" readonly />
               </div>
             </div>
             <div class="flex">
               <i class="ri-calendar-close-line mr-2 text-stone-400"></i>
               <div class="flex flex-col">
                 <label class="font-medium" for="checkOut">Check Out:</label>
-                <input class="bg-transparent border-none outline-none" formControlName="checkOut" readonly />
+                <input type="date" class="bg-transparent border-none outline-none" formControlName="checkOutDate" readonly />
               </div>
             </div>
             <div class="flex">
@@ -39,21 +39,21 @@
               <i class="ri-user-line mr-2 text-stone-400"></i>
               <div class="flex flex-col">
                 <label class="font-medium" for="guest">Huéspedes:</label>
-                <input class="bg-transparent border-none outline-none" formControlName="guest" readonly />
+                <input type="text" class="bg-transparent border-none outline-none" formControlName="guest" readonly />
               </div>
             </div>
             <div class="flex">
               <i class="ri-moon-line mr-2 text-stone-400"></i>
               <div class="flex flex-col">
                 <label class="font-medium" for="totalNights">Total noches:</label>
-                <input class="bg-transparent border-none outline-none" formControlName="totalNights" readonly />
+                <input type="text" class="bg-transparent border-none outline-none" formControlName="totalNights" readonly />
               </div>
             </div>
             <div class="flex">
               <i class="ri-money-euro-circle-line mr-2 text-stone-400"></i>
               <div class="flex flex-col">
                 <label class="font-medium" for="pricePerNight">Precio/Noche:</label>
-                <input class="bg-transparent border-none outline-none" formControlName="pricePerNight" readonly />
+                <input type="text" class="bg-transparent border-none outline-none" formControlName="pricePerNight" readonly />
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@
               <span class="flex items-center">
                 <i class="ri-wallet-3-line mr-2"></i> Total:
               </span>
-              <input class="bg-transparent border-none outline-none" formControlName="totalPriceNights" readonly />
+              <input type="text" class="bg-transparent border-none outline-none" formControlName="totalPriceNights" readonly />
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
               <i class="ri-phone-line mr-2 text-stone-400"></i> Número de teléfono
             </label>
             <input class="rounded px-4 py-2 border" type="text" name="numberPhone" placeholder="Rellena este campo"
-              formControlName="phoneNumber">
+              formControlName="numberPhone">
           </div>
 
         </div>
